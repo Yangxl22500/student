@@ -30,8 +30,9 @@ public class LoginController {
         if (code != null && code.equals(Code)){
 //            Subject subject = SecurityUtils.getSubject();
 //            AuthenticationToken token = new UsernamePasswordToken(studentVO.getLoginName(),studentVO.getPassword());
+            session.setAttribute("currentUser", studentVO);
             SysStudent sysStudent = service.selectStu(studentVO);
-            if (sysStudent.getLoginName().equals(studentVO.getLoginName()) && sysStudent.getPassword().equals(studentVO.getPassword())){
+            if (sysStudent != null && sysStudent.getLoginName().equals(studentVO.getLoginName()) && sysStudent.getPassword().equals(studentVO.getPassword())){
                 return AjaxResult.LOGIN_SUCCESS;
             }else {
                 return AjaxResult.LOGIN_ERROR_PASS;

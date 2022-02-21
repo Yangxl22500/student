@@ -16,8 +16,26 @@ spring:
     properties:
       hibernate:
         format_sql: true
+  thymeleaf:
+    servlet:
+      content-type: text/html
+    cache: false
+    mode: LEGACYHTML5
+    encoding: UTF-8
+
+# 日志配置
+logging:
+  level:
+    # 打印级别
+    root: DEBUG
+#    root: INFO
+#    root: warn
+#    root: error
+
 mybatis-plus:
   configuration:
+#    打印sql
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#  配置xml地址
   mapper-locations: classpath:mapper/*Mapper.xml
 

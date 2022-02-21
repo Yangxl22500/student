@@ -42,8 +42,10 @@
                 ,{field:'sex', title:'性别', width:120, templet: function (res){
                         if (res.sex == 1){
                             return "男";
-                        }else {
+                        }else if (res.sex == 0){
                             return "女";
+                        }else {
+                            return "";
                         }
                     }}
                 ,{field:'createTime', title:'加入时间', width:120}
